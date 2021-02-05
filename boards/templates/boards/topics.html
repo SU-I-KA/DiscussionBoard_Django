@@ -1,0 +1,38 @@
+{% extends 'boards/layout.html' %}
+
+
+{%block title%} {{board.name}} {%endblock%}
+
+{%block content%}
+
+            <ol class="breadcrumb my-4 p-3 bg-light">
+                <li class="breadcrumb-item"><a href="{%url 'index'%}">Boards</a></li>
+                <li class="breadcrumb-item active">{{board.name}}</li>
+            </ol>
+
+            <a href="{%url 'new_topic' board.pk%}" class="btn btn-primary mb-3">New Topic</a>
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Topic</th>
+                        <th>Starter</th>
+                        <th>Replies</th>
+                        <th>Views</th>
+                        <th>Last Update</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {%for topic in board.topics.all%}
+                    <tr>
+                        <td><a href="#">{{topic.subject}}</a></td>
+                        <td>{{topic.author.username}}</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>{{topic.date}}</td>
+                    </tr>
+                    {%endfor%}
+                </tbody>
+            </table>
+
+{%endblock%}

@@ -1,0 +1,33 @@
+{% extends 'boards/layout.html' %}
+
+
+{%block title%} Home {%endblock%}
+
+{%block content%}
+
+            <ol class="breadcrumb my-4 p-3 bg-light">
+                <li class="breadcrumb-item active">Boards</li>
+            </ol>
+
+            <table class="table">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Board</th>
+                        <th>Topics</th>
+                        <th>Posts</th>
+                        <th>Latest Post</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {%for board in boards%}
+                    <tr>
+                        <td><a href="{%url 'board_topics' board.pk%}">{{board.name}}</a></td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>monday</td>
+                    </tr>
+                    {%endfor%}
+                </tbody>
+            </table>
+
+{%endblock%}
